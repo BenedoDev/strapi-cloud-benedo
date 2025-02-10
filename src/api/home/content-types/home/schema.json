@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "homes",
+  "info": {
+    "singularName": "home",
+    "pluralName": "homes",
+    "displayName": "Home"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "somos_benedos_cards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::home-somos-benedo.home-somos-benedo"
+    },
+    "solucoes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::home-solucao.home-solucao"
+    },
+    "empreedimentos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::empreedimento.empreedimento"
+    },
+    "blogs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog.blog"
+    },
+    "imprensas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::imprensa.imprensa"
+    }
+  }
+}

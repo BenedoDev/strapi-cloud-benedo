@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "empreedimentos",
+  "info": {
+    "singularName": "empreedimento",
+    "pluralName": "empreedimentos",
+    "displayName": "Empreedimentos"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "banner": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "about": {
+      "type": "text",
+      "required": true
+    },
+    "metrics": {
+      "type": "text",
+      "required": true
+    },
+    "gallery": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    },
+    "leads": {
+      "type": "string",
+      "required": true
+    },
+    "corretores": {
+      "type": "string",
+      "required": true
+    },
+    "lotes_vendidos": {
+      "type": "string",
+      "required": true
+    },
+    "contratos": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
