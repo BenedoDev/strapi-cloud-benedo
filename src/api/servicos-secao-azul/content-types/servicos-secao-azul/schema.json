@@ -35,9 +35,6 @@
     "tools_title": {
       "type": "string"
     },
-    "tools": {
-      "type": "json"
-    },
     "gallery": {
       "type": "media",
       "multiple": true,
@@ -58,6 +55,13 @@
     },
     "benefits_items": {
       "type": "json"
+    },
+    "tools": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }
