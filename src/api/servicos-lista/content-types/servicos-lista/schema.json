@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "servicos_listas",
+  "info": {
+    "singularName": "servicos-lista",
+    "pluralName": "servicos-listas",
+    "displayName": "Serviços Lista"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

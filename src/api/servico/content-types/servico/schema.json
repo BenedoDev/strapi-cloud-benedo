@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "servicos",
+  "info": {
+    "singularName": "servico",
+    "pluralName": "servicos",
+    "displayName": "Serviços"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "uid"
+    },
+    "banner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::servicos-banner.servicos-banner"
+    },
+    "project_requirement": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::servicos-project-requirement.servicos-project-requirement"
+    },
+    "services_title": {
+      "type": "string"
+    },
+    "services_subtitle": {
+      "type": "string"
+    },
+    "services_lists": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::servicos-lista.servicos-lista"
+    },
+    "blue_section": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::servicos-secao-azul.servicos-secao-azul"
+    },
+    "servicos_testimonials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::servicos-testemunho.servicos-testemunho"
+    }
+  }
+}

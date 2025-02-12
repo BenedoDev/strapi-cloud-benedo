@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "servicos_secao_azuls",
+  "info": {
+    "singularName": "servicos-secao-azul",
+    "pluralName": "servicos-secao-azuls",
+    "displayName": "Serviços Seção Azul",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description_title": {
+      "type": "string"
+    },
+    "descriptions": {
+      "type": "json"
+    },
+    "image_banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "metrics": {
+      "type": "json"
+    },
+    "tools_title": {
+      "type": "string"
+    },
+    "tools": {
+      "type": "json"
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "accordions": {
+      "type": "json"
+    },
+    "bigger_metrics": {
+      "type": "json"
+    },
+    "benefits_title": {
+      "type": "string"
+    },
+    "benefits_items": {
+      "type": "json"
+    }
+  }
+}
