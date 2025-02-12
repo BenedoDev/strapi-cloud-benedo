@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "sobres",
+  "info": {
+    "singularName": "sobre",
+    "pluralName": "sobres",
+    "displayName": "Sobre",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "history": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sobre-historia.sobre-historia"
+    },
+    "time": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::sobre-time.sobre-time"
+    },
+    "trabalhe_conosco": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::sobre-trabalhe-conosco.sobre-trabalhe-conosco"
+    },
+    "conheca": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::sobre-conheca.sobre-conheca"
+    }
+  }
+}

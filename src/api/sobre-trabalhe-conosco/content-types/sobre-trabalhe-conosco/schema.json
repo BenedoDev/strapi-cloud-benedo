@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sobre_trabalhe_conoscos",
+  "info": {
+    "singularName": "sobre-trabalhe-conosco",
+    "pluralName": "sobre-trabalhe-conoscos",
+    "displayName": "Sobre Trabalhe Conosco"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "url_text": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

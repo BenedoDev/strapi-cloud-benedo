@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sobre_times",
+  "info": {
+    "singularName": "sobre-time",
+    "pluralName": "sobre-times",
+    "displayName": "Sobre Time"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "areas": {
+      "type": "json",
+      "required": true
+    }
+  }
+}

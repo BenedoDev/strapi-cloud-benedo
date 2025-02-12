@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sobre_historias",
+  "info": {
+    "singularName": "sobre-historia",
+    "pluralName": "sobre-historias",
+    "displayName": "Sobre História",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "year": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
