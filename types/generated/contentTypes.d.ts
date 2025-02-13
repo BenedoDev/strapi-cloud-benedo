@@ -637,6 +637,389 @@ export interface ApiImprensaImprensa extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiServicoServico extends Struct.CollectionTypeSchema {
+  collectionName: 'servicos';
+  info: {
+    displayName: 'Servi\u00E7os';
+    pluralName: 'servicos';
+    singularName: 'servico';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::servicos-banner.servicos-banner'
+    >;
+    blue_section: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::servicos-secao-azul.servicos-secao-azul'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::servico.servico'
+    > &
+      Schema.Attribute.Private;
+    project_requirement: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::servicos-project-requirement.servicos-project-requirement'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    services_lists: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::servicos-lista.servicos-lista'
+    >;
+    services_subtitle: Schema.Attribute.String;
+    services_title: Schema.Attribute.String;
+    servicos_testimonials: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::servicos-testemunho.servicos-testemunho'
+    >;
+    slug: Schema.Attribute.UID;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiServicosBannerServicosBanner
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'servicos_banners';
+  info: {
+    displayName: 'Servi\u00E7os Banner';
+    pluralName: 'servicos-banners';
+    singularName: 'servicos-banner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    link: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::servicos-banner.servicos-banner'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiServicosListaServicosLista
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'servicos_listas';
+  info: {
+    displayName: 'Servi\u00E7os Lista';
+    pluralName: 'servicos-listas';
+    singularName: 'servicos-lista';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::servicos-lista.servicos-lista'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiServicosProjectRequirementServicosProjectRequirement
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'servicos_project_requirements';
+  info: {
+    displayName: 'Servi\u00E7os Project Requirement';
+    pluralName: 'servicos-project-requirements';
+    singularName: 'servicos-project-requirement';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::servicos-project-requirement.servicos-project-requirement'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    requirements: Schema.Attribute.JSON;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiServicosSecaoAzulServicosSecaoAzul
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'servicos_secao_azuls';
+  info: {
+    description: '';
+    displayName: 'Servi\u00E7os Se\u00E7\u00E3o Azul';
+    pluralName: 'servicos-secao-azuls';
+    singularName: 'servicos-secao-azul';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    accordions: Schema.Attribute.JSON;
+    benefits_items: Schema.Attribute.JSON;
+    benefits_title: Schema.Attribute.String;
+    bigger_metrics: Schema.Attribute.JSON;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description_title: Schema.Attribute.String;
+    descriptions: Schema.Attribute.JSON;
+    gallery: Schema.Attribute.Media<'images' | 'videos', true>;
+    image_banner: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::servicos-secao-azul.servicos-secao-azul'
+    > &
+      Schema.Attribute.Private;
+    metrics: Schema.Attribute.JSON;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    title_2: Schema.Attribute.Text;
+    tools: Schema.Attribute.Media<'images', true>;
+    tools_title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiServicosTestemunhoServicosTestemunho
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'servicos_testemunhos';
+  info: {
+    displayName: 'Servi\u00E7os Testemunhos';
+    pluralName: 'servicos-testemunhos';
+    singularName: 'servicos-testemunho';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    author_image: Schema.Attribute.Media<'images'>;
+    author_name: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::servicos-testemunho.servicos-testemunho'
+    > &
+      Schema.Attribute.Private;
+    project: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    text: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSobreConhecaSobreConheca
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'sobre_conhecas';
+  info: {
+    displayName: 'Sobre Conhe\u00E7a';
+    pluralName: 'sobre-conhecas';
+    singularName: 'sobre-conheca';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sobre-conheca.sobre-conheca'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    video_thumb: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    video_url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ApiSobreHistoriaSobreHistoria
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'sobre_historias';
+  info: {
+    description: '';
+    displayName: 'Sobre Hist\u00F3ria';
+    pluralName: 'sobre-historias';
+    singularName: 'sobre-historia';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sobre-historia.sobre-historia'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    year: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ApiSobreTimeSobreTime extends Struct.CollectionTypeSchema {
+  collectionName: 'sobre_times';
+  info: {
+    displayName: 'Sobre Time';
+    pluralName: 'sobre-times';
+    singularName: 'sobre-time';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    areas: Schema.Attribute.JSON & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sobre-time.sobre-time'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSobreTrabalheConoscoSobreTrabalheConosco
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'sobre_trabalhe_conoscos';
+  info: {
+    displayName: 'Sobre Trabalhe Conosco';
+    pluralName: 'sobre-trabalhe-conoscos';
+    singularName: 'sobre-trabalhe-conosco';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sobre-trabalhe-conosco.sobre-trabalhe-conosco'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+    url_text: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ApiSobreSobre extends Struct.SingleTypeSchema {
+  collectionName: 'sobres';
+  info: {
+    description: '';
+    displayName: 'Sobre';
+    pluralName: 'sobres';
+    singularName: 'sobre';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    conheca: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::sobre-conheca.sobre-conheca'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    history: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sobre-historia.sobre-historia'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::sobre.sobre'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    time: Schema.Attribute.Relation<'oneToOne', 'api::sobre-time.sobre-time'>;
+    trabalhe_conosco: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::sobre-trabalhe-conosco.sobre-trabalhe-conosco'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1154,6 +1537,17 @@ declare module '@strapi/strapi' {
       'api::home-somos-benedo.home-somos-benedo': ApiHomeSomosBenedoHomeSomosBenedo;
       'api::home.home': ApiHomeHome;
       'api::imprensa.imprensa': ApiImprensaImprensa;
+      'api::servico.servico': ApiServicoServico;
+      'api::servicos-banner.servicos-banner': ApiServicosBannerServicosBanner;
+      'api::servicos-lista.servicos-lista': ApiServicosListaServicosLista;
+      'api::servicos-project-requirement.servicos-project-requirement': ApiServicosProjectRequirementServicosProjectRequirement;
+      'api::servicos-secao-azul.servicos-secao-azul': ApiServicosSecaoAzulServicosSecaoAzul;
+      'api::servicos-testemunho.servicos-testemunho': ApiServicosTestemunhoServicosTestemunho;
+      'api::sobre-conheca.sobre-conheca': ApiSobreConhecaSobreConheca;
+      'api::sobre-historia.sobre-historia': ApiSobreHistoriaSobreHistoria;
+      'api::sobre-time.sobre-time': ApiSobreTimeSobreTime;
+      'api::sobre-trabalhe-conosco.sobre-trabalhe-conosco': ApiSobreTrabalheConoscoSobreTrabalheConosco;
+      'api::sobre.sobre': ApiSobreSobre;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

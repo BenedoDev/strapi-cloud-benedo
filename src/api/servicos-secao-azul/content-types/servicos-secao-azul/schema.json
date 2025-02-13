@@ -57,11 +57,15 @@
       "type": "json"
     },
     "tools": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "title_2": {
+      "type": "text"
     }
   }
 }
