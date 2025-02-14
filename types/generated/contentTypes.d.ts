@@ -468,6 +468,7 @@ export interface ApiEmpreedimentoEmpreedimento
   extends Struct.CollectionTypeSchema {
   collectionName: 'empreedimentos';
   info: {
+    description: '';
     displayName: 'Empreedimentos';
     pluralName: 'empreedimentos';
     singularName: 'empreedimento';
@@ -483,7 +484,11 @@ export interface ApiEmpreedimentoEmpreedimento
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    description_2: Schema.Attribute.Text;
     gallery: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
+    infrastructure: Schema.Attribute.JSON;
+    infrastructure_image: Schema.Attribute.Media<'images'>;
     leads: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -491,13 +496,53 @@ export interface ApiEmpreedimentoEmpreedimento
       'api::empreedimento.empreedimento'
     > &
       Schema.Attribute.Private;
+    location: Schema.Attribute.Relation<'oneToOne', 'api::endereco.endereco'>;
     lotes_vendidos: Schema.Attribute.String & Schema.Attribute.Required;
-    metrics: Schema.Attribute.Text & Schema.Attribute.Required;
+    metrics: Schema.Attribute.JSON;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    release: Schema.Attribute.String;
+    social_medias: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::medias-sociai.medias-sociai'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    video_thumb: Schema.Attribute.Media<'images'>;
+    video_url: Schema.Attribute.String;
+  };
+}
+
+export interface ApiEnderecoEndereco extends Struct.CollectionTypeSchema {
+  collectionName: 'enderecos';
+  info: {
+    displayName: 'Endere\u00E7os';
+    pluralName: 'enderecos';
+    singularName: 'endereco';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Schema.Attribute.Text & Schema.Attribute.Required;
+    city: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::endereco.endereco'
+    > &
+      Schema.Attribute.Private;
+    map_iframe: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    waze_link: Schema.Attribute.String;
+    whatsapp: Schema.Attribute.String;
   };
 }
 
@@ -631,6 +676,36 @@ export interface ApiImprensaImprensa extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMediasSociaiMediasSociai
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'medias_sociais';
+  info: {
+    displayName: 'Medias Sociais';
+    pluralName: 'medias-sociais';
+    singularName: 'medias-sociai';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    icon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    link: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::medias-sociai.medias-sociai'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1533,10 +1608,12 @@ declare module '@strapi/strapi' {
       'api::blog.blog': ApiBlogBlog;
       'api::category.category': ApiCategoryCategory;
       'api::empreedimento.empreedimento': ApiEmpreedimentoEmpreedimento;
+      'api::endereco.endereco': ApiEnderecoEndereco;
       'api::home-solucao.home-solucao': ApiHomeSolucaoHomeSolucao;
       'api::home-somos-benedo.home-somos-benedo': ApiHomeSomosBenedoHomeSomosBenedo;
       'api::home.home': ApiHomeHome;
       'api::imprensa.imprensa': ApiImprensaImprensa;
+      'api::medias-sociai.medias-sociai': ApiMediasSociaiMediasSociai;
       'api::servico.servico': ApiServicoServico;
       'api::servicos-banner.servicos-banner': ApiServicosBannerServicosBanner;
       'api::servicos-lista.servicos-lista': ApiServicosListaServicosLista;

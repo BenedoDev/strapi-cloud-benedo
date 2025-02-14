@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "enderecos",
+  "info": {
+    "singularName": "endereco",
+    "pluralName": "enderecos",
+    "displayName": "Endereços"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "text",
+      "required": true
+    },
+    "waze_link": {
+      "type": "string"
+    },
+    "whatsapp": {
+      "type": "string"
+    },
+    "map_iframe": {
+      "type": "text"
+    }
+  }
+}

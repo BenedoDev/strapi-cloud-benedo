@@ -4,7 +4,8 @@
   "info": {
     "singularName": "empreedimento",
     "pluralName": "empreedimentos",
-    "displayName": "Empreedimentos"
+    "displayName": "Empreedimentos",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,28 +17,24 @@
       "required": true
     },
     "banner": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "about": {
       "type": "text",
       "required": true
     },
-    "metrics": {
-      "type": "text",
-      "required": true
-    },
     "gallery": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": true,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "leads": {
       "type": "string",
@@ -54,6 +51,50 @@
     "contratos": {
       "type": "string",
       "required": true
+    },
+    "release": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "description_2": {
+      "type": "text"
+    },
+    "metrics": {
+      "type": "json"
+    },
+    "video_thumb": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "video_url": {
+      "type": "string"
+    },
+    "infrastructure": {
+      "type": "json"
+    },
+    "infrastructure_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::endereco.endereco"
+    },
+    "social_medias": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::medias-sociai.medias-sociai"
     }
   }
 }

@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "medias_sociais",
+  "info": {
+    "singularName": "medias-sociai",
+    "pluralName": "medias-sociais",
+    "displayName": "Medias Sociais"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
