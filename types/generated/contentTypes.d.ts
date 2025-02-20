@@ -506,6 +506,7 @@ export interface ApiEmpreedimentoEmpreedimento
       'oneToMany',
       'api::medias-sociai.medias-sociai'
     >;
+    success_metrics: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

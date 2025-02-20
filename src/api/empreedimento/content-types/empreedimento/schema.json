@@ -95,6 +95,9 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::medias-sociai.medias-sociai"
+    },
+    "success_metrics": {
+      "type": "text"
     }
   }
 }
