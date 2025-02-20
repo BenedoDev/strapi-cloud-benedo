@@ -98,6 +98,9 @@
     },
     "success_metrics": {
       "type": "text"
+    },
+    "benefits": {
+      "type": "json"
     }
   }
 }

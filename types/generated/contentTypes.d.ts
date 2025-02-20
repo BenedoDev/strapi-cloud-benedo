@@ -479,6 +479,7 @@ export interface ApiEmpreedimentoEmpreedimento
   attributes: {
     about: Schema.Attribute.Text & Schema.Attribute.Required;
     banner: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    benefits: Schema.Attribute.JSON;
     contratos: Schema.Attribute.String & Schema.Attribute.Required;
     corretores: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
