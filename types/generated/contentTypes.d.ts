@@ -744,6 +744,70 @@ export interface ApiParceiroParceiro extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPoliticaDePrivacidadePoliticaDePrivacidade
+  extends Struct.SingleTypeSchema {
+  collectionName: 'politica_de_privacidades';
+  info: {
+    displayName: 'Pol\u00EDtica de privacidade';
+    pluralName: 'politica-de-privacidades';
+    singularName: 'politica-de-privacidade';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.String;
+    description: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::politica-de-privacidade.politica-de-privacidade'
+    > &
+      Schema.Attribute.Private;
+    policies: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::politicas-de-privacidade.politicas-de-privacidade'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPoliticasDePrivacidadePoliticasDePrivacidade
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'politicas_de_privacidades';
+  info: {
+    displayName: 'Pol\u00EDticas de privacidade';
+    pluralName: 'politicas-de-privacidades';
+    singularName: 'politicas-de-privacidade';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::politicas-de-privacidade.politicas-de-privacidade'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiServicoServico extends Struct.CollectionTypeSchema {
   collectionName: 'servicos';
   info: {
@@ -1647,6 +1711,8 @@ declare module '@strapi/strapi' {
       'api::imprensa.imprensa': ApiImprensaImprensa;
       'api::medias-sociai.medias-sociai': ApiMediasSociaiMediasSociai;
       'api::parceiro.parceiro': ApiParceiroParceiro;
+      'api::politica-de-privacidade.politica-de-privacidade': ApiPoliticaDePrivacidadePoliticaDePrivacidade;
+      'api::politicas-de-privacidade.politicas-de-privacidade': ApiPoliticasDePrivacidadePoliticasDePrivacidade;
       'api::servico.servico': ApiServicoServico;
       'api::servicos-banner.servicos-banner': ApiServicosBannerServicosBanner;
       'api::servicos-lista.servicos-lista': ApiServicosListaServicosLista;

@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "politica_de_privacidades",
+  "info": {
+    "singularName": "politica-de-privacidade",
+    "pluralName": "politica-de-privacidades",
+    "displayName": "Política de privacidade"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "string",
+      "required": false
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "policies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::politicas-de-privacidade.politicas-de-privacidade"
+    }
+  }
+}
