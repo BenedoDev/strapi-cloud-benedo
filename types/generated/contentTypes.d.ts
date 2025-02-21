@@ -714,6 +714,36 @@ export interface ApiMediasSociaiMediasSociai
   };
 }
 
+export interface ApiParceiroParceiro extends Struct.CollectionTypeSchema {
+  collectionName: 'parceiros';
+  info: {
+    description: '';
+    displayName: 'Parceiros Imprensa';
+    pluralName: 'parceiros';
+    singularName: 'parceiro';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::parceiro.parceiro'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiServicoServico extends Struct.CollectionTypeSchema {
   collectionName: 'servicos';
   info: {
@@ -1616,6 +1646,7 @@ declare module '@strapi/strapi' {
       'api::home.home': ApiHomeHome;
       'api::imprensa.imprensa': ApiImprensaImprensa;
       'api::medias-sociai.medias-sociai': ApiMediasSociaiMediasSociai;
+      'api::parceiro.parceiro': ApiParceiroParceiro;
       'api::servico.servico': ApiServicoServico;
       'api::servicos-banner.servicos-banner': ApiServicosBannerServicosBanner;
       'api::servicos-lista.servicos-lista': ApiServicosListaServicosLista;
