@@ -14,7 +14,10 @@ module.exports = [
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
-          "script-src": ["https://cdn.ckeditor.com"],
+          "script-src": [
+            "https://cdn.ckeditor.com",
+            "https://strapi.benedo.com.br",
+          ],
           "connect-src": ["https://proxy-event.ckeditor.com"],
         },
       },
