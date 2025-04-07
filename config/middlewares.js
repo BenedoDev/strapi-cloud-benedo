@@ -9,16 +9,16 @@ module.exports = [
   "strapi::favicon",
   "strapi::public",
   "strapi::security",
-  // {
-  //   name: "strapi::security",
-  //   config: {
-  //     contentSecurityPolicy: {
-  //       useDefaults: true,
-  //       directives: {
-  //         "script-src": ["https://cdn.ckeditor.com"],
-  //         "connect-src": ["https://proxy-event.ckeditor.com"],
-  //       },
-  //     },
-  //   },
-  // },
+  {
+    name: "strapi::security",
+    config: {
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          "script-src": ["https://cdn.ckeditor.com"],
+          "connect-src": ["https://proxy-event.ckeditor.com"],
+        },
+      },
+    },
+  },
 ];
