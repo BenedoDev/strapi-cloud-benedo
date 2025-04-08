@@ -673,6 +673,16 @@ export interface ApiImprensaImprensa extends Struct.CollectionTypeSchema {
     author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
     category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
     content: Schema.Attribute.RichText;
+    conteudo: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzUxNzQzOTksImp0aSI6ImFhOThlMzBjLTY0MTAtNDA2OS04OWJlLWYyZjM0Y2UzZDRmMCIsImxpY2Vuc2VkSG9zdHMiOlsic3RyYXBpLmJlbmVkby5jb20uYnIiXSwidXNhZ2VFbmRwb2ludCI6Imh0dHBzOi8vcHJveHktZXZlbnQuY2tlZGl0b3IuY29tIiwiZGlzdHJpYnV0aW9uQ2hhbm5lbCI6WyJjbG91ZCIsImRydXBhbCJdLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiZmJlZjUwNGEifQ.Y71k-gx-w1T4v-VS5LOfjjZCjJSUtOEUmg3y9USiauV8Dhyn9lUPX1I6qEKLalUKukxZ1mihr-jDNHXg5_YQ3w';
+          output: 'HTML';
+          preset: 'standard';
+        }
+      >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
