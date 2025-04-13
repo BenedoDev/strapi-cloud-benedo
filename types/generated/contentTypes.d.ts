@@ -474,6 +474,34 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCertificadoCertificado extends Struct.CollectionTypeSchema {
+  collectionName: 'certificados';
+  info: {
+    displayName: 'certificados';
+    pluralName: 'certificados';
+    singularName: 'certificado';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    imagens: Schema.Attribute.Media<'images', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::certificado.certificado'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEmpreedimentoEmpreedimento
   extends Struct.CollectionTypeSchema {
   collectionName: 'empreedimentos';
@@ -508,6 +536,8 @@ export interface ApiEmpreedimentoEmpreedimento
     > &
       Schema.Attribute.Private;
     location: Schema.Attribute.Relation<'oneToOne', 'api::endereco.endereco'>;
+    logotipo_1: Schema.Attribute.Media<'images'>;
+    logotipo_2: Schema.Attribute.Media<'images', true>;
     lotes_vendidos: Schema.Attribute.String & Schema.Attribute.Required;
     metrics: Schema.Attribute.JSON;
     name: Schema.Attribute.String & Schema.Attribute.Required;
@@ -1723,6 +1753,7 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::blog.blog': ApiBlogBlog;
       'api::category.category': ApiCategoryCategory;
+      'api::certificado.certificado': ApiCertificadoCertificado;
       'api::empreedimento.empreedimento': ApiEmpreedimentoEmpreedimento;
       'api::endereco.endereco': ApiEnderecoEndereco;
       'api::home-solucao.home-solucao': ApiHomeSolucaoHomeSolucao;

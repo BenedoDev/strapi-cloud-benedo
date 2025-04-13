@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "certificados",
+  "info": {
+    "singularName": "certificado",
+    "pluralName": "certificados",
+    "displayName": "certificados"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "imagens": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

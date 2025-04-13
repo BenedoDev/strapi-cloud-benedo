@@ -101,6 +101,20 @@
     },
     "benefits": {
       "type": "json"
+    },
+    "logotipo_1": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "logotipo_2": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }
