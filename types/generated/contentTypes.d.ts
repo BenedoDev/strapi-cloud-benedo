@@ -537,7 +537,7 @@ export interface ApiEmpreedimentoEmpreedimento
       Schema.Attribute.Private;
     location: Schema.Attribute.Relation<'oneToOne', 'api::endereco.endereco'>;
     logotipo_1: Schema.Attribute.Media<'images'>;
-    logotipo_2: Schema.Attribute.Media<'images', true>;
+    logotipo_2: Schema.Attribute.Media<'images'>;
     lotes_vendidos: Schema.Attribute.String & Schema.Attribute.Required;
     metrics: Schema.Attribute.JSON;
     name: Schema.Attribute.String & Schema.Attribute.Required;
