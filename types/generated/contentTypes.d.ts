@@ -588,6 +588,42 @@ export interface ApiEnderecoEndereco extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFooterFooter extends Struct.SingleTypeSchema {
+  collectionName: 'footers';
+  info: {
+    displayName: 'Footer';
+    pluralName: 'footers';
+    singularName: 'footer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    certificados: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::certificado.certificado'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    enderecos: Schema.Attribute.Relation<'oneToMany', 'api::endereco.endereco'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::footer.footer'
+    > &
+      Schema.Attribute.Private;
+    medias_sociais: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::medias-sociai.medias-sociai'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomeSolucaoHomeSolucao extends Struct.CollectionTypeSchema {
   collectionName: 'home_solucoes';
   info: {
@@ -1756,6 +1792,7 @@ declare module '@strapi/strapi' {
       'api::certificado.certificado': ApiCertificadoCertificado;
       'api::empreedimento.empreedimento': ApiEmpreedimentoEmpreedimento;
       'api::endereco.endereco': ApiEnderecoEndereco;
+      'api::footer.footer': ApiFooterFooter;
       'api::home-solucao.home-solucao': ApiHomeSolucaoHomeSolucao;
       'api::home-somos-benedo.home-somos-benedo': ApiHomeSomosBenedoHomeSomosBenedo;
       'api::home.home': ApiHomeHome;

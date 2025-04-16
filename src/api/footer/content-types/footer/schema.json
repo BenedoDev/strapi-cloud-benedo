@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "footers",
+  "info": {
+    "singularName": "footer",
+    "pluralName": "footers",
+    "displayName": "Footer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "medias_sociais": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::medias-sociai.medias-sociai"
+    },
+    "certificados": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::certificado.certificado"
+    },
+    "enderecos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::endereco.endereco"
+    }
+  }
+}
