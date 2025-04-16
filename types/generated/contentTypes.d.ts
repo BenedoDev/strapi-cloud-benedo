@@ -477,6 +477,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
 export interface ApiCertificadoCertificado extends Struct.CollectionTypeSchema {
   collectionName: 'certificados';
   info: {
+    description: '';
     displayName: 'certificados';
     pluralName: 'certificados';
     singularName: 'certificado';
@@ -488,7 +489,7 @@ export interface ApiCertificadoCertificado extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    imagens: Schema.Attribute.Media<'images', true>;
+    image: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -496,6 +497,7 @@ export interface ApiCertificadoCertificado extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

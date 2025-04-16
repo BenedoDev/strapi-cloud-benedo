@@ -4,19 +4,25 @@
   "info": {
     "singularName": "certificado",
     "pluralName": "certificados",
-    "displayName": "certificados"
+    "displayName": "certificados",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "imagens": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "Title": {
+      "type": "string",
+      "required": true
     }
   }
 }
