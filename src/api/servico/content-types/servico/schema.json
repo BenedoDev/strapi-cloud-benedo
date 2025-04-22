@@ -4,7 +4,8 @@
   "info": {
     "singularName": "servico",
     "pluralName": "servicos",
-    "displayName": "Serviços"
+    "displayName": "Serviços",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -44,6 +45,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::servicos-testemunho.servicos-testemunho"
+    },
+    "servicos_video": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::servicos-video.servicos-video"
     }
   }
 }

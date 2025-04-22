@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "servicos_videos",
+  "info": {
+    "singularName": "servicos-video",
+    "pluralName": "servicos-videos",
+    "displayName": "Serviços Video"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "thumb": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

@@ -899,6 +899,7 @@ export interface ApiPoliticasDePrivacidadePoliticasDePrivacidade
 export interface ApiServicoServico extends Struct.CollectionTypeSchema {
   collectionName: 'servicos';
   info: {
+    description: '';
     displayName: 'Servi\u00E7os';
     pluralName: 'servicos';
     singularName: 'servico';
@@ -938,6 +939,10 @@ export interface ApiServicoServico extends Struct.CollectionTypeSchema {
     servicos_testimonials: Schema.Attribute.Relation<
       'oneToMany',
       'api::servicos-testemunho.servicos-testemunho'
+    >;
+    servicos_video: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::servicos-video.servicos-video'
     >;
     slug: Schema.Attribute.UID;
     updatedAt: Schema.Attribute.DateTime;
@@ -1111,6 +1116,37 @@ export interface ApiServicosTestemunhoServicosTestemunho
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiServicosVideoServicosVideo
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'servicos_videos';
+  info: {
+    displayName: 'Servi\u00E7os Video';
+    pluralName: 'servicos-videos';
+    singularName: 'servicos-video';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::servicos-video.servicos-video'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    thumb: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -1809,6 +1845,7 @@ declare module '@strapi/strapi' {
       'api::servicos-project-requirement.servicos-project-requirement': ApiServicosProjectRequirementServicosProjectRequirement;
       'api::servicos-secao-azul.servicos-secao-azul': ApiServicosSecaoAzulServicosSecaoAzul;
       'api::servicos-testemunho.servicos-testemunho': ApiServicosTestemunhoServicosTestemunho;
+      'api::servicos-video.servicos-video': ApiServicosVideoServicosVideo;
       'api::sobre-conheca.sobre-conheca': ApiSobreConhecaSobreConheca;
       'api::sobre-historia.sobre-historia': ApiSobreHistoriaSobreHistoria;
       'api::sobre-time.sobre-time': ApiSobreTimeSobreTime;
