@@ -561,6 +561,7 @@ export interface ApiEmpreedimentoEmpreedimento
 export interface ApiEnderecoEndereco extends Struct.CollectionTypeSchema {
   collectionName: 'enderecos';
   info: {
+    description: '';
     displayName: 'Endere\u00E7os';
     pluralName: 'enderecos';
     singularName: 'endereco';
@@ -574,6 +575,8 @@ export interface ApiEnderecoEndereco extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    exibir_contato: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

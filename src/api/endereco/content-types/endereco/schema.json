@@ -4,7 +4,8 @@
   "info": {
     "singularName": "endereco",
     "pluralName": "enderecos",
-    "displayName": "Endereços"
+    "displayName": "Endereços",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -27,6 +28,10 @@
     },
     "map_iframe": {
       "type": "text"
+    },
+    "exibir_contato": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
