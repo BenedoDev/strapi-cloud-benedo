@@ -50,6 +50,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::servicos-video.servicos-video"
+    },
+    "servicos_pessoa_fisica": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::servicos-pessoa-fisica.servicos-pessoa-fisica"
     }
   }
 }

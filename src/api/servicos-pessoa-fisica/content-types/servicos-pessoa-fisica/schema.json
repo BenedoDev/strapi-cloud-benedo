@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "servicos_pessoa_fisicas",
+  "info": {
+    "singularName": "servicos-pessoa-fisica",
+    "pluralName": "servicos-pessoa-fisicas",
+    "displayName": "Serviços Pessoa Física"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "descricao": {
+      "type": "text"
+    },
+    "descricao_2": {
+      "type": "text"
+    },
+    "faq": {
+      "type": "json"
+    },
+    "faq_image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "texto_meio": {
+      "type": "text"
+    },
+    "text_meio_negrito": {
+      "type": "text"
+    },
+    "cards": {
+      "type": "json"
+    }
+  }
+}

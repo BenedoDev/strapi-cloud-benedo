@@ -939,6 +939,10 @@ export interface ApiServicoServico extends Struct.CollectionTypeSchema {
     >;
     services_subtitle: Schema.Attribute.String;
     services_title: Schema.Attribute.String;
+    servicos_pessoa_fisica: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::servicos-pessoa-fisica.servicos-pessoa-fisica'
+    >;
     servicos_testimonials: Schema.Attribute.Relation<
       'oneToMany',
       'api::servicos-testemunho.servicos-testemunho'
@@ -1017,6 +1021,42 @@ export interface ApiServicosListaServicosLista
   };
 }
 
+export interface ApiServicosPessoaFisicaServicosPessoaFisica
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'servicos_pessoa_fisicas';
+  info: {
+    displayName: 'Servi\u00E7os Pessoa F\u00EDsica';
+    pluralName: 'servicos-pessoa-fisicas';
+    singularName: 'servicos-pessoa-fisica';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cards: Schema.Attribute.JSON;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descricao: Schema.Attribute.Text;
+    descricao_2: Schema.Attribute.Text;
+    faq: Schema.Attribute.JSON;
+    faq_image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::servicos-pessoa-fisica.servicos-pessoa-fisica'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    text_meio_negrito: Schema.Attribute.Text;
+    texto_meio: Schema.Attribute.Text;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiServicosProjectRequirementServicosProjectRequirement
   extends Struct.CollectionTypeSchema {
   collectionName: 'servicos_project_requirements';
@@ -1080,6 +1120,8 @@ export interface ApiServicosSecaoAzulServicosSecaoAzul
       Schema.Attribute.Private;
     metrics: Schema.Attribute.JSON;
     publishedAt: Schema.Attribute.DateTime;
+    texto_meio: Schema.Attribute.Text;
+    texto_meio_negrito: Schema.Attribute.Text;
     title: Schema.Attribute.String;
     title_2: Schema.Attribute.Text;
     tools: Schema.Attribute.Media<'images', true>;
@@ -1845,6 +1887,7 @@ declare module '@strapi/strapi' {
       'api::servico.servico': ApiServicoServico;
       'api::servicos-banner.servicos-banner': ApiServicosBannerServicosBanner;
       'api::servicos-lista.servicos-lista': ApiServicosListaServicosLista;
+      'api::servicos-pessoa-fisica.servicos-pessoa-fisica': ApiServicosPessoaFisicaServicosPessoaFisica;
       'api::servicos-project-requirement.servicos-project-requirement': ApiServicosProjectRequirementServicosProjectRequirement;
       'api::servicos-secao-azul.servicos-secao-azul': ApiServicosSecaoAzulServicosSecaoAzul;
       'api::servicos-testemunho.servicos-testemunho': ApiServicosTestemunhoServicosTestemunho;

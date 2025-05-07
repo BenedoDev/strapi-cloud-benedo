@@ -66,6 +66,12 @@
     },
     "title_2": {
       "type": "text"
+    },
+    "texto_meio_negrito": {
+      "type": "text"
+    },
+    "texto_meio": {
+      "type": "text"
     }
   }
 }
